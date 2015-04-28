@@ -2113,6 +2113,7 @@ ul li {
   position: fixed;
   top: 40px;
   left: 2%;
+  width: 20%;
   z-index: 99999;
   font-family: "Impact", sans-serif;
   text-transform: uppercase;

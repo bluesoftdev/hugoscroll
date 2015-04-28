@@ -23,10 +23,8 @@
     <main class="content" role="main">
     <div class='fixed-nav'>
     </div>
-        {{ range .Data.Pages.ByWeight }}
-                {{ if eq .Type  "post" }}
-                    {{ .Render "post"}}
-                {{ end }}
+        {{ range .Data.Pages }}
+          {{ .Render "post"}}
         {{ end }}
 
 </main>

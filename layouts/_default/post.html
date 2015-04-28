@@ -1,0 +1,23 @@
+<div class='post-holder'>
+{{ if .Params.class }}
+  <article class="{{ .Params.class }}">
+{{ else }}
+  <article class="post">
+{{ end }}
+
+    <header class="post-header">
+      <a id="blog-logo" href="{{ .Site.BaseUrl}}">
+        {{ if .Site.Params.logo }}
+          <img src="{{ .Site.Params.logo }}" alt="Blog Logo" />
+        {{else}}
+          <h1>{{ .Site.Title }}</h1>
+        {{ end }}
+      </a>
+    </header>
+    <h2 class="post-title">{{ .Title }}</h2>
+    <section class="post-content">
+    {{ .Content }}
+    </section>
+  </article>
+</div>
+<div class='post-after'></div>

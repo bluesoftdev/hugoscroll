@@ -49,15 +49,16 @@ var $post = $('.post'),
         	    index = $(this).parents('.post-holder').index();
         	$fnav.append("<a class='fn-item' item_index='"+index+"'>"+t+"</a>")
         	$(this).parents('article').attr('id',t.toLowerCase().split(' ').join('-'));
-        	$('.fn-item').click(function () {
-        		var i = $(this).attr('item_index'),
-        			s = $(".post[item_index='"+i+"']")
+    
+        })
+        $('.fn-item').click(function () {
+            var i = $(this).attr('item_index'),
+                s = $(".post[item_index='"+i+"']")
 
-        		$('html, body').animate({
-					scrollTop: s.offset().top
-				}, 400);
+            $('html, body').animate({
+                scrollTop: s.offset().top
+            }, 400);
 
-        	})
         })
 
         $('.post.last').next('.post-after').hide();
