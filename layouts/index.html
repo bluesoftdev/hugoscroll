@@ -1,6 +1,5 @@
 {{ partial "header.html" . }}
 <body class="home-template">
-
     <!-- The big featured header on the homepage, with the site logo and description -->
     <header id="site-head" {{ if .Site.Params.cover }}style="background-image: url({{ .Site.Params.cover }})"{{ end }}>
         <div class="vertical">
@@ -12,26 +11,23 @@
                 <h2 class="blog-description">Power puff girls</h2>
                 {{ end }}
 
-                <a class='btn first'>Take a tour</a>
-                <a class='btn last'>Cut to the chase</a><br>
+                <a class='btn first'>First</a>
+                <a class='btn last'>Last</a><br>
                 <i id='header-arrow' class="fa fa-angle-down"></i>
             </div>
         </div>
-
     </header>
-
     <main class="content" role="main">
-    <div class='fixed-nav'>
-    </div>
-        {{ range .Data.Pages }}
-          {{ .Render "post"}}
-        {{ end }}
-
-</main>
+      <ul class='fixed-nav fa-ul'>
+      </ul>
+      {{ $lastElement := ( sub ( len .Data.Pages ) 1 ) }}
+      {{ range $idx, $page := .Data.Pages }}
+        {{ $page.Scratch.Set "isfirst" ( eq $idx 0 ) }}
+        {{ $page.Scratch.Set "islast" ( eq $idx $lastElement ) }}
+        {{ partial "post.html" $page }}
+      {{ end }}
+    </main>
     {{ partial "footer.html" .}}
-
     {{ partial "script.html" .}}
-
-
-</body>
+  </body>
 </html>

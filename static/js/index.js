@@ -47,10 +47,10 @@ var $post = $('.post'),
         $('.post-title').each(function () {
         	var t = $(this).text(),
         	    index = $(this).parents('.post-holder').index();
-        	$fnav.append("<a class='fn-item' item_index='"+index+"'>"+t+"</a>")
+        	$fnav.append("<li><i class='fa-li fa fa-arrow-right'></i><a class='fn-item' item_index='"+index+"'>"+t+"</a></li>")
         	$(this).parents('article').attr('id',t.toLowerCase().split(' ').join('-'));
-    
         })
+
         $('.fn-item').click(function () {
             var i = $(this).attr('item_index'),
                 s = $(".post[item_index='"+i+"']")
@@ -95,7 +95,7 @@ var $post = $('.post'),
                 })
             });
         }
-        $('ul li').before('<span class="bult fa fa-asterisk icon-asterisk"></span>')
+        $('.post-content ul li').before('<span class="bult fa fa-asterisk icon-asterisk"></span>')
         $('blockquote p').prepend('<span class="quo icon-quote-left"></span>')
                 .append('<span class="quo icon-quote-right"></span>')
     });

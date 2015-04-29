@@ -2,11 +2,11 @@
 {{ if .Params.class }}
   <article class="{{ .Params.class }}">
 {{ else }}
-  <article class="post">
+  <article class='post{{ if $.Scratch.Get "isfirst" }} first{{end}}{{ if $.Scratch.Get "islast" }} last{{end}}'>
 {{ end }}
 
     <header class="post-header">
-      <a id="blog-logo" href="{{ .Site.BaseUrl}}">
+      <a id="blog-logo" href="/">
         {{ if .Site.Params.logo }}
           <img src="{{ .Site.Params.logo }}" alt="Blog Logo" />
         {{else}}
